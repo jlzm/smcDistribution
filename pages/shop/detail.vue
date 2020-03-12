@@ -104,7 +104,7 @@
 
         <!-- 底部关注店铺按钮 begin -->
         <view v-if="shopDetail.attention === 0" class="pof footer">
-            <button @click="onFollowShop()" class="btn">关注店铺</button>
+            <button @click="onFollowShop()" class="btn">收藏店铺</button>
         </view>
         <!-- 底部关注店铺按钮 end -->
 
@@ -123,18 +123,6 @@
 			</view>
 		</view>
         <!-- 分类列表 end -->
-        <!-- 未关注弹出层 begin -->
-        <view v-if="showMask" class="df df-c pop prompt-mask">
-            <template v-if="!hasLogin || incomeData.status !== 0">
-                <view class="df df-c prompt">
-                    <text class="name">提示</text>
-                    <text class="desc">你还不是会员，申请成为会员，关注商家分享推广拿奖励</text>
-                    <button @click.stop="navTo('/pages/application/step')" class="btn">立即申请</button>
-                </view>
-            </template>
-            <text @click="showMask = false" class="fyfont icon-close"></text>
-        </view>
-        <!-- 弹出层 end -->
     </view>
 </template>
 
