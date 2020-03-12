@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'fyfont';
+    /* project id 1577367 */
+    src: url('https://at.alicdn.com/t/font_1577367_h8v854lm92f.eot');
+    src: url('https://at.alicdn.com/t/font_1577367_h8v854lm92f.eot?#iefix') format('embedded-opentype'),
+        url('https://at.alicdn.com/t/font_1577367_h8v854lm92f.woff2') format('woff2'),
+        url('https://at.alicdn.com/t/font_1577367_h8v854lm92f.woff') format('woff'),
+        url('https://at.alicdn.com/t/font_1577367_h8v854lm92f.ttf') format('truetype'),
+        url('https://at.alicdn.com/t/font_1577367_h8v854lm92f.svg#fyfont') format('svg');
+}
+
+
+.fyfont {
+    font-family: "fyfont" !important;
+    font-size: 28rpx;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-notice::before {
+    content: "\e628";
+}
+
+.icon-search::before {
+    content: "\e643";
+}
+
+.icon-up::before {
+    content: "\e634";
+}
+
+.icon-down::before {
+    content: "\e631";
+}
+
+.icon-close::before {
+    content: "\e605";
+}
+
+.icon-down-hollow::before {
+    content: "\e632";
+}
+
+.icon-right::before {
+    content: "\e633";
+}

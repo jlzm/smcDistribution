@@ -1,6 +1,8 @@
 <template>
     <view class="notice">
-        <view class="left-box"></view>
+        <view class="left-box">
+            <fyIcon :icon="leftIcon" size="22rpx" color="#000"></fyIcon>
+        </view>
         <view class="conter-box">
             <view class="left"></view>
             <view class="conter">
@@ -15,8 +17,18 @@
 </template>
 
 <script>
+import fyIcon from "@/components/icon";
+
 export default {
+    components: {
+        fyIcon
+    },
     props: {
+        leftIcon: {
+            type: String,
+            default: 'icon-notice'
+        },
+
         text: {
             type: String,
             default: '就阿九阿九急啊急啊急啊急啊经济阿萨大大是利空打击拉萨看得见拉克丝打赏'

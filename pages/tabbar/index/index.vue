@@ -1,8 +1,8 @@
 <template>
     <view class="container">
         <view class="header">
-            <view class="df df-r ai-c search-box">
-                <fyIcon icon="icon-search" size="34rpx" color="#6e6e6e"></fyIcon>
+            <view @click="navTo('/pages/search/search')" class="df df-r ai-c search-box">
+                <fyIcon icon="icon-search" size="32rpx" color="#6e6e6e"></fyIcon>
                 <text class="placeholder">搜索店铺/商品</text>    
             </view>
             <view class="notice-box">
@@ -307,7 +307,7 @@ let shopCurrentPage = 1,
         overflow: hidden;
         .placeholder {
             margin-left: 10rpx;
-            font-size: 32rpx;
+            font-size: 30rpx;
             color: #6e6e6e;
         }
     }

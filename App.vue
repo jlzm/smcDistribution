@@ -29,47 +29,8 @@
 </script>
 
 <style lang="scss">
-@font-face {
-  font-family: 'fyfont';  /* project id 1577367 */
-  src: url('https://at.alicdn.com/t/font_1577367_v0akwfey0nd.eot');
-  src: url('https://at.alicdn.com/t/font_1577367_v0akwfey0nd.eot?#iefix') format('embedded-opentype'),
-  url('https://at.alicdn.com/t/font_1577367_v0akwfey0nd.woff2') format('woff2'),
-  url('https://at.alicdn.com/t/font_1577367_v0akwfey0nd.woff') format('woff'),
-  url('https://at.alicdn.com/t/font_1577367_v0akwfey0nd.ttf') format('truetype'),
-  url('https://at.alicdn.com/t/font_1577367_v0akwfey0nd.svg#fyfont') format('svg');
-}
-
-	.fyfont {
-		font-family:"fyfont" !important;
-        font-size: 28rpx;
-        font-style:normal;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-	}
-
-    .icon-search::before {
-        content: "\e643";
-    }
-
-    .icon-up::before {
-        content: "\e634";
-    }
-
-    .icon-down::before {
-        content: "\e631";
-    }
-
-    .icon-close::before {
-        content: "\e605";
-    }
-
-    .icon-down-hollow::before {
-        content: "\e632";
-    }
-
-    .icon-right::before {
-        content: "\e633";
-    }
+// 字体图标
+@import "@/static/styles/fyfont";
 
 
 	view,
