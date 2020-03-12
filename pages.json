@@ -1,6 +1,12 @@
 {
 	"pages": [
         {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索"
+			}
+		},
+        {
 			"path": "pages/tabbar/index/index",
 			"style": {
 				"enablePullDownRefresh": true,
@@ -29,12 +35,6 @@
 			"path": "pages/shop/detail",
 			"style": {
 				"navigationBarTitleText": "店铺详情"
-			}
-		},
-		{
-			"path": "pages/search/search",
-			"style": {
-				"navigationBarTitleText": "搜索"
 			}
 		}
         

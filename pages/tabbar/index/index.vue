@@ -11,7 +11,7 @@
         </view>
         <view class="content">
             <view v-if="!!followList.length" class="follow-wrap">
-                <view class="wrap-title">我的关注（{{followList.length}}）</view>
+                <view class="wrap-title">我的收藏（{{followList.length}}）</view>
                 <scroll-view @scrolltolower="loadingFollowMore()" scroll-x>
                     <view class="df df-r jc-fs follow-list">
                         <view @click="navTo(`/pages/shop/detail?shopId=${item.shopId}`)" v-for="(item, index) in followList" :key="index" class="item">

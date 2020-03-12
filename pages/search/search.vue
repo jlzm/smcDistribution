@@ -1,9 +1,11 @@
 <template>
     <view class="container">
         <view class="header">
-            <view class="search-box">
-                <i class="fyfont icon-search"></i>
-                <input type="text" focus>
+            <view class="df jc-sb search-wrap">
+                <view class="search-box">
+                    <input class="search" type="text" focus>
+                </view>
+                <view class="search-btn">搜索</view>
             </view>
         </view>
         <view class="content">
@@ -284,7 +286,34 @@ let shopCurrentPage = 1,
 }
 
 .header {
+    background-color: #E9D5CC;
     margin-bottom: 48rpx;
+    padding-bottom: 20rpx;
+    .search-wrap {
+        padding: 0 43rpx;
+        .search-box {
+            height: 64rpx;
+            // border-radius: 32rpx;
+            // overflow: hidden;
+            .placeholder {
+                margin-left: 10rpx;
+                font-size: 30rpx;
+                color: #6e6e6e;
+            }
+            .search {
+                padding: 0 20rpx;
+                font-size: 28rpx;;
+                background-color: #ffffff;
+                height: 64rpx;
+                width: 562rpx;
+                border-radius: 32rpx;
+            }
+        }
+        .search-btn {
+            color: #E5AB90;
+            font-size: 32rpx;
+        }
+    }
 }
 
 .content {
