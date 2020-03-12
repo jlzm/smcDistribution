@@ -1,0 +1,33 @@
+.prompt-mask {
+    .prompt {
+        width: 562rpx;
+        height: 460rpx;
+        border-radius: 20rpx;
+        background-color: #fff;
+        padding: 64rpx 48rpx;
+        margin-bottom: 80rpx;
+        .name {
+            font-weight: 600;
+            font-size: 37rpx;
+            margin-bottom: 32rpx;
+            color: #333;
+        }
+        .desc {
+            font-size: 30rpx;
+            margin-bottom: 70rpx;
+            color: #6e6e6e;
+        }
+        .btn {
+            width: 466rpx;
+            height: 96rpx;
+            font-size: 36rpx;
+            border-radius: 60rpx;
+            color: #fff;
+            background-color: #CB8768;
+        }
+    }
+    .icon-close {
+        font-size: 50rpx;
+        color: #fff;
+    }
+}

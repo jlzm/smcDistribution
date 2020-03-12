@@ -1,0 +1,62 @@
+/* 颜色变量 */
+
+/* 行为相关颜色 */
+$fy-color-primary: #007aff;
+$fy-color-success: #4cd964;
+$fy-color-warning: #f0ad4e;
+$fy-color-error: #dd524d;
+
+/* 文字基本颜色 */
+$fy-text-color:#333;//基本色
+$fy-text-color-inverse:#fff;//反色
+$fy-text-color-grey:#999;//辅助灰色，如加载更多的提示信息
+$fy-text-color-placeholder: #808080;
+$fy-text-color-disable:#c0c0c0;
+
+/* 背景颜色 */
+$fy-bg-color:#F7F8FA;
+$fy-bg-color-grey:#f8f8f8;
+$fy-bg-color-hover:#f1f1f1;//点击状态颜色
+$fy-bg-color-mask:rgba(0, 0, 0, 0.4);//遮罩颜色
+
+/* 边框颜色 */
+$fy-border-color:#c8c7cc;
+
+/* 尺寸变量 */
+
+/* 文字尺寸 */
+$fy-font-size-sm:20rpx;
+$fy-font-size-base:28rpx;
+$fy-font-size-lg:32rpx;
+
+/* 图片尺寸 */
+$fy-img-size-sm:40rpx;
+$fy-img-size-base:52rpx;
+$fy-img-size-lg:80rpx;
+
+/* Border Radius */
+$fy-border-radius-sm: 4rpx;
+$fy-border-radius-base: 6rpx;
+$fy-border-radius-lg: 12rpx;
+$fy-border-radius-circle: 50%;
+
+/* 水平间距 */
+$fy-spacing-row-sm: 10px;
+$fy-spacing-row-base: 20rpx;
+$fy-spacing-row-lg: 30rpx;
+
+/* 垂直间距 */
+$fy-spacing-col-sm: 8rpx;
+$fy-spacing-col-base: 16rpx;
+$fy-spacing-col-lg: 24rpx;
+
+/* 透明度 */
+$fy-opacity-disabled: 0.3; // 组件禁用态的透明度
+
+/* 文章场景相关 */
+$fy-color-title: #2C405A; // 文章标题颜色
+$fy-font-size-title:40rpx;
+$fy-color-subtitle: #555555; // 二级标题颜色
+$fy-font-size-subtitle:36rpx;
+$fy-color-paragraph: #3F536E; // 文章段落颜色
+$fy-font-size-paragraph:30rpx;
