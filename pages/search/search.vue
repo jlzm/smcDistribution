@@ -2,9 +2,9 @@
     <view class="container">
         <view class="header">
             <view class="df jc-sb search-wrap">
-                <view class="por search-box">
+                <view class="por df ai-c search-box">
                     <input class="search" type="text" focus>
-                    <view class="icon-box">
+                    <view class="df ai-c icon-box">
                         <fyIcon icon="icon-cancel" size="36rpx" color="#B7B7B7"></fyIcon>
                     </view>
                 </view>
@@ -61,25 +61,23 @@
                 </view>
             </view>
         </view>
-        <!-- 弹出层 begin -->
-        <view v-if="showMask" class="df df-c pop prompt-mask">
-            <template v-if="!hasLogin || incomeData.status !== 0">
-                <view class="df df-c prompt">
-                    <text class="name">提示</text>
-                    <text class="desc">你还不是会员，申请成为会员，关注商家分享推广拿奖励</text>
-                    <button @click.stop="navTo('/pages/application/step')" class="btn">立即申请</button>
+        <!-- 历史搜索 begin -->
+        <view class="history-search">
+            <view class="df jc-sb title-box">
+                <view class="title">历史搜索</view>
+                <view class="df ai-c clear-box">
+                    <fyIcon icon="icon-delete" size="40rpx" color="#a1a1a1"></fyIcon>
+                    <text class="clear-text">清空</text>
                 </view>
-            </template>
-            <template v-else>
-                <view class="df df-c prompt">
-                    <text class="name">关注成功</text>
-                    <text class="desc">马上去分享推广吧</text>
-                    <button @click.stop="toShare()" class="btn">分享推广</button>
-                </view>
-            </template>
-            <text @click="showMask = false" class="fyfont icon-close"></text>
+            </view>
+            <view class="df df-w history-values">
+                <view class="history-item">休闲食品</view>
+                <view class="history-item">休闲零食</view>
+                <view class="history-item">可乐</view>
+                <view class="history-item">和天下</view>
+            </view>
         </view>
-        <!-- 弹出层 end -->
+        <!-- 历史搜索 end -->
         <!-- 分类弹出层列表 begin -->
 		<view class="cate-mask" :class="cateTypeMask || ''" @click="toggleCateMask()">
 			<view class="cate-content" @click.stop.prevent="stopPrevent" @touchmove.stop.prevent="stopPrevent">
@@ -300,8 +298,8 @@ let shopCurrentPage = 1,
         padding: 0 43rpx;
         .search-box {
             height: 60rpx;
-            border-radius: 32rpx;
-            // overflow: hidden;
+            border-radius: 30rpx;
+            overflow: hidden;
             background-color: #ffffff;
             padding: 0 20rpx;
             width: 562rpx;
@@ -311,11 +309,12 @@ let shopCurrentPage = 1,
                 color: #6e6e6e;
             }
             .search {
-                font-size: 28rpx;;
+                width: 562rpx;
+                font-size: 28rpx;
             }
             .icon-box {
                 position: absolute;
-                top: 12rpx;
+                top: 8rpx;
                 right: 20rpx;
             }
         }
@@ -354,4 +353,37 @@ let shopCurrentPage = 1,
         }
     }
 }
+
+/** 历史记录 begin */
+.history-search {
+    padding: 34rpx 60rpx 0;
+    .title-box {
+        .title {
+            font-weight: 400;
+            font-size: 32rpx;
+            color: #000000;
+        }
+        .clear-box {
+            .clear-text {   
+                margin-left: 8rpx;
+                font-size: 24rpx;
+            }
+        }
+    }
+
+    .history-values {
+        margin: 34rpx -34rpx 0 0;
+        .history-item {
+            margin-bottom: 30rpx;
+            font-size: 32rpx;
+            color: #000000;
+            font-weight: 400;
+            margin-right: 34rpx;
+            background-color: #B7B7B7;
+            padding: 8rpx 40rpx;
+            border-radius: 10rpx;
+        }
+    }
+}
+/** 历史记录 end */
 </style>
