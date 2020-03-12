@@ -9,15 +9,26 @@
                 </view>
             </view>
             <view class="poa tac follow follow-login">{{shopDetail.attention === 1 ? '已' : '未'}}收藏</view>
-            <view class="address-wrap">
-                
+            <view class="df jc-sb address-wrap">
+                <view class="df df-r ai-c address">
+                    <fyIcon icon="icon-address" size="34rpx"></fyIcon>
+                    <text class="">岳麓区王府井广场1楼105</text>
+                </view>
+                <view class="distance">5.5公里</view>
+            </view>
+            <view class="business-hours">
+                营业时间：8:00-20:00
             </view>
         </template>
     </view>
 </template>
 
 <script>
+import fyIcon from "@/components/icon";
     export default {
+        components: {
+            fyIcon
+        },
         props: {
             shopDetail: {
                 type: Object,
@@ -38,7 +49,7 @@
 @import '@/static/styles/income.scss';
 
 .card {
-    padding: 38rpx 75rpx 40rpx;
+    padding: 40rpx;
     background-color: #E9D5CC;
     // 未登录 begin
     .shop {
@@ -102,5 +113,20 @@
         width: 108rpx;
         top: 78rpx;
     }
+}
+
+.address-wrap {
+    margin-top: 18rpx;
+    font-weight: 400;
+    font-size: 32rpx;
+    color: #210900;
+}
+
+.business-hours {
+    margin-top: 12rpx;
+    font-weight: 400;
+    padding: 0 34rpx;
+    font-size: 32rpx;
+    color: #210900;
 }
 </style>
