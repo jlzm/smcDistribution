@@ -3,7 +3,7 @@
         <view class="header">
             <view class="df jc-sb search-wrap">
                 <view class="por df ai-c search-box">
-                    <input class="search" type="text" focus>
+                    <input v-model="searchValue" class="search" type="text" focus>
                     <view class="df ai-c icon-box">
                         <fyIcon icon="icon-cancel" size="36rpx" color="#B7B7B7"></fyIcon>
                     </view>
@@ -11,7 +11,24 @@
                 <view class="search-btn">搜索</view>
             </view>
         </view>
-        <view class="content">
+        <!-- 历史搜索 begin -->
+        <view v-if="!searchValue" class="history-search">
+            <view class="df jc-sb title-box">
+                <view class="title">历史搜索</view>
+                <view @click.stop="clearHistory()" class="df ai-c clear-box">
+                    <fyIcon icon="icon-delete" size="40rpx" color="#a1a1a1"></fyIcon>
+                    <text class="clear-text">清空</text>
+                </view>
+            </view>
+            <view class="df df-w history-values">
+                <view class="history-item">休闲食品</view>
+                <view class="history-item">休闲零食</view>
+                <view class="history-item">可乐</view>
+                <view class="history-item">和天下</view>
+            </view>
+        </view>
+        <!-- 历史搜索 end -->
+        <view v-else class="content">
             <view v-if="!!followList.length" class="follow-wrap">
                 <view class="wrap-title">我的关注（{{followList.length}}）</view>
                 <scroll-view @scrolltolower="loadingFollowMore()" scroll-x>
@@ -61,23 +78,6 @@
                 </view>
             </view>
         </view>
-        <!-- 历史搜索 begin -->
-        <view class="history-search">
-            <view class="df jc-sb title-box">
-                <view class="title">历史搜索</view>
-                <view class="df ai-c clear-box">
-                    <fyIcon icon="icon-delete" size="40rpx" color="#a1a1a1"></fyIcon>
-                    <text class="clear-text">清空</text>
-                </view>
-            </view>
-            <view class="df df-w history-values">
-                <view class="history-item">休闲食品</view>
-                <view class="history-item">休闲零食</view>
-                <view class="history-item">可乐</view>
-                <view class="history-item">和天下</view>
-            </view>
-        </view>
-        <!-- 历史搜索 end -->
         <!-- 分类弹出层列表 begin -->
 		<view class="cate-mask" :class="cateTypeMask || ''" @click="toggleCateMask()">
 			<view class="cate-content" @click.stop.prevent="stopPrevent" @touchmove.stop.prevent="stopPrevent">
@@ -107,6 +107,7 @@ import fyIcon from "@/components/icon";
 import { mapMutations } from "vuex";
 let shopCurrentPage = 1, 
         followCurrentPage = 1;
+
     export default {
         components: {
             fyUserInfo,
@@ -115,6 +116,7 @@ let shopCurrentPage = 1,
         },
         data() {
             return {
+                searchValue: '',
                 shopTypeList: [
                     {
                         typeName: '家用电器',
@@ -177,6 +179,11 @@ let shopCurrentPage = 1,
         
         methods: {
             ...mapMutations(['saveIncomeData']),
+
+            clearHistory() {
+                
+            },
+
             /**
              * 店铺类别 mask 开关
              * @param { Number } type // null:隐藏; 1:显示;
@@ -292,7 +299,6 @@ let shopCurrentPage = 1,
 
 .header {
     background-color: #E9D5CC;
-    margin-bottom: 48rpx;
     padding-bottom: 20rpx;
     .search-wrap {
         padding: 0 43rpx;
