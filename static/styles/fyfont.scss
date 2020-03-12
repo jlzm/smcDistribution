@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'fyfont';  /* project id 1577367 */
-    src: url('https://at.alicdn.com/t/font_1577367_feyb7kroisn.eot');
-    src: url('https://at.alicdn.com/t/font_1577367_feyb7kroisn.eot?#iefix') format('embedded-opentype'),
-    url('https://at.alicdn.com/t/font_1577367_feyb7kroisn.woff2') format('woff2'),
-    url('https://at.alicdn.com/t/font_1577367_feyb7kroisn.woff') format('woff'),
-    url('https://at.alicdn.com/t/font_1577367_feyb7kroisn.ttf') format('truetype'),
-    url('https://at.alicdn.com/t/font_1577367_feyb7kroisn.svg#fyfont') format('svg');
+    src: url('https://at.alicdn.com/t/font_1577367_6aogib7p9a6.eot');
+    src: url('https://at.alicdn.com/t/font_1577367_6aogib7p9a6.eot?#iefix') format('embedded-opentype'),
+    url('https://at.alicdn.com/t/font_1577367_6aogib7p9a6.woff2') format('woff2'),
+    url('https://at.alicdn.com/t/font_1577367_6aogib7p9a6.woff') format('woff'),
+    url('https://at.alicdn.com/t/font_1577367_6aogib7p9a6.ttf') format('truetype'),
+    url('https://at.alicdn.com/t/font_1577367_6aogib7p9a6.svg#fyfont') format('svg');
   }
 
 
@@ -15,6 +15,10 @@
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-address::before {
+    content: "\e7e7";
 }
 
 .icon-delete::before {

@@ -1,11 +1,11 @@
 {
-	"pages": [
+    "pages": [
         {
-			"path": "pages/search/search",
-			"style": {
-				"navigationBarTitleText": "搜索"
-			}
-		},
+            "path": "pages/shop/detail",
+            "style": {
+                "navigationBarTitleText": "店铺详情"
+            }
+        },
         {
 			"path": "pages/tabbar/index/index",
 			"style": {
@@ -13,6 +13,13 @@
 				"navigationBarTitleText": "供销小店"
 			}
 		},
+        {
+			"path": "pages/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索"
+			}
+		},
+
         {
 			"path": "pages/login/login",
 			"style": {
@@ -29,12 +36,6 @@
 			"path": "pages/pact/pact",
 			"style": {
 				"navigationBarTitleText": "用户协议"
-			}
-		},
-		{
-			"path": "pages/shop/detail",
-			"style": {
-				"navigationBarTitleText": "店铺详情"
 			}
 		}
         

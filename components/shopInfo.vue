@@ -5,10 +5,13 @@
                 <image :src="shopDetail.image" class="logo"></image>
                 <view class="df1">
                     <view class="clamp name">{{shopDetail.shopName}}</view>
-                    <view class="clamp desc">{{shopDetail.content}}</view>
+                    <view class="clamp desc">分类：{{shopDetail.content}}</view>
                 </view>
             </view>
-            <view class="poa tac follow follow-login">{{shopDetail.attention === 1 ? '已关注' : '未关注'}}</view>
+            <view class="poa tac follow follow-login">{{shopDetail.attention === 1 ? '已' : '未'}}收藏</view>
+            <view class="address-wrap">
+                
+            </view>
         </template>
     </view>
 </template>

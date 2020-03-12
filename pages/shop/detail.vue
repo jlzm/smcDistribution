@@ -204,7 +204,8 @@
         },
 
         onLoad(option) {
-            this.shopId = option.shopId;
+            // this.shopId = option.shopId;
+            this.shopId = "000888";
             this.getShopDetail();
             this.getGoodsList();
         },
