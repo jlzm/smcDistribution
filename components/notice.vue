@@ -6,8 +6,8 @@
         <view class="conter-box">
             <view class="left"></view>
             <view class="conter">
-                <view :animation="animationData" class="text">
-                    <text>{{text}}</text>
+                <view :animation="animationData" class="text-box">
+                    <text class="text">{{text}}</text>
                 </view>
             </view>
             <view class="right"></view>
@@ -36,13 +36,78 @@ export default {
     },
 
     data() {
-        return{
-
+        return {
+            animation: null,
+            animationData: null,
+            timer: null,
+            duration: 0,
+            textWidth: 0,
+            wrapWidth: 0
         }
     },
 
+    onHide() {
+        this.destroyTimer()
+        this.timer = null;
+    },
+
+    onUnload() {
+        this.destroyTimer()
+        this.timer = null;
+    },
+
+    mounted() {
+        setTimeout(() => {
+            this.initAnimation(this.text);
+        }, 10);
+    },
+
     methods: {
+        destroyTimer() {
+            if (this.timer) {
+                clearTimeout(this.timer);
+            }
+        },
+
+        // 准备动画
+        initAnimation(text) {
+            this.duration = 15000,
+            this.animation = uni.createAnimation({
+                duration: this.duration
+            })
+
+            const query = uni.createSelectorQuery().in(this);
+            query.select('.conter').boundingClientRect();
+            query.select('.text').boundingClientRect();
+            query.exec((rect) => {
+                this.wrapWidth = rect[0].width;
+                this.textWidth = rect[1].width;
+                this.startAnimation();
+            })
+
+        },
         
+        // 动画开始
+        startAnimation() {
+            const resetAnimation = this.animation.translateX(this.wrapWidth).step({ 
+                duration: 0
+            });
+            this.animationData = resetAnimation.export();
+
+            const animationData = this.animation.translateX(-this.textWidth).step({
+                duration: this.duration
+            })
+
+            setTimeout(() => {
+                this.animationData = animationData.export();
+            }, 100);
+
+            const timer = setTimeout(() => {
+                this.startAnimation()
+            }, this.duration);
+
+            this.timer = timer;
+        }
     },
 }
 </script>
@@ -69,7 +134,7 @@ export default {
     .conter {
         width: 650rpx;
         overflow: hidden;
-        .text {
+        .text-box {
             white-space: nowrap;
             font-size: 24rpx;
             color: #333333;
