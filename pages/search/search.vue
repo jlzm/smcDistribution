@@ -4,6 +4,9 @@
             <view class="df jc-sb search-wrap">
                 <view class="por search-box">
                     <input class="search" type="text" focus>
+                    <view class="icon-box">
+                        <fyIcon icon="icon-cancel" size="36rpx" color="#B7B7B7"></fyIcon>
+                    </view>
                 </view>
                 <view class="search-btn">搜索</view>
             </view>
@@ -98,15 +101,19 @@
 <script>
 import { getShopList, attentionShop, getMyAttentionList, getShop } from '@/hub/api/shop';
 import { getDistributor } from '@/hub/api/user';
+
 import fyUserInfo from '@/components/userInfo';
 import fyLoadMore from '@/components/loadMore';
+import fyIcon from "@/components/icon";
+
 import { mapMutations } from "vuex";
 let shopCurrentPage = 1, 
         followCurrentPage = 1;
     export default {
         components: {
             fyUserInfo,
-            fyLoadMore
+            fyLoadMore,
+            fyIcon
         },
         data() {
             return {
@@ -292,7 +299,7 @@ let shopCurrentPage = 1,
     .search-wrap {
         padding: 0 43rpx;
         .search-box {
-            height: 64rpx;
+            height: 60rpx;
             border-radius: 32rpx;
             // overflow: hidden;
             background-color: #ffffff;
@@ -305,6 +312,11 @@ let shopCurrentPage = 1,
             }
             .search {
                 font-size: 28rpx;;
+            }
+            .icon-box {
+                position: absolute;
+                top: 12rpx;
+                right: 20rpx;
             }
         }
         .search-btn {
