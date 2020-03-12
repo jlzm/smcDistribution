@@ -1,7 +1,7 @@
 <template>
     <view class="notice">
         <view class="left-box">
-            <fyIcon :icon="leftIcon" size="22rpx" color="#000"></fyIcon>
+            <fyIcon :icon="leftIcon" size="28rpx" color="#000"></fyIcon>
         </view>
         <view class="conter-box">
             <view class="left"></view>
@@ -56,6 +56,7 @@ export default {
 }
 
 .left-box {
+    width: 70rpx;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,7 +67,7 @@ export default {
     display: flex;
     align-items: center;
     .conter {
-        width: 600rpx;
+        width: 650rpx;
         overflow: hidden;
         .text {
             white-space: nowrap;
@@ -74,5 +75,12 @@ export default {
             color: #333333;
         }
     }
+}
+
+.right-box {
+    width: 70rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

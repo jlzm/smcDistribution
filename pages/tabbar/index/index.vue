@@ -312,7 +312,7 @@ let shopCurrentPage = 1,
         }
     }
     .notice-box {
-        margin-top: 10rpx;
+        margin-top: 20rpx;
     }
 }
 

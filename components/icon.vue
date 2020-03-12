@@ -1,5 +1,5 @@
 <template>
-    <i class="fyfont" :class="icon" style="font-size:{{size}}; color: {{color}}"></i>
+    <i class="fyfont" :class="icon" :style="{'font-size': size, color: color}"></i>
 </template>
 
 <script>
