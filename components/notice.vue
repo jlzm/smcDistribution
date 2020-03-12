@@ -29,6 +29,11 @@ export default {
             default: 'icon-notice'
         },
 
+        speed: {
+            type: Number,
+            default: 15000
+        },
+
         text: {
             type: String,
             default: '就阿九阿九急啊急啊急啊急啊经济阿萨大大是利空打击拉萨看得见拉克丝打赏'
@@ -71,7 +76,7 @@ export default {
 
         // 准备动画
         initAnimation(text) {
-            this.duration = 15000,
+            this.duration = this.speed,
             this.animation = uni.createAnimation({
                 duration: this.duration
             })
