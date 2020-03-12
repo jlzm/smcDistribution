@@ -4,65 +4,23 @@
             <view class="titile">
                 <fy-shopInfo :shopDetail="shopDetail"></fy-shopInfo>
             </view>
-            <view v-if="shopDetail.attention === 0" class="df jc-sa bonus-wrap">
-                <view class="tac item ">
-                    <view class="name">商品价格</view>
-                    <view>
-                        <template v-if="shopDetail.priceMax && shopDetail.priceMax > 0">
-                            <text class="num price-sm">{{shopDetail.priceMin}} ~ </text>
-                            <text class="num price-sm">{{shopDetail.priceMax}}</text>
-                        </template>
-                        <template v-else>
-                            <text class="num price-sm">{{shopDetail.priceMin}}</text>
-                        </template>
-                    </view>
-                </view>
-                <view class="hr"></view>
-                <view class="tac item">
-                    <view class="name">奖励比例</view>
-                    <template >
-                        <text v-if="shopDetail.proportionMax && shopDetail.proportionMax > 0" class="num">{{shopDetail.proportionMin}}% ~ {{shopDetail.proportionMax}}%</text>
-                        <text v-else class="num">{{shopDetail.proportionMin}}%</text>
-                    </template>
-                </view>
-            </view>
             <!-- 商品筛选 begin -->
-            <view id="filter-wrap" :class="{'filter-wrap-fixed': filterWrap.fixed}" class="df jc-sa por bd-b filter-wrap">
-                <!-- 未关注 begin -->
-                <template v-if="shopDetail.attention === 0">
-                    <view @click="toggleCateMask(1)" :class="{current: navIndex === '0101'}" class="item">{{goodsTypeItem.name}}
+                <view id="filter-wrap" :class="{'filter-wrap-fixed': filterWrap.fixed}" class="df jc-sa por bd-b filter-wrap">
+                    <view @click="toggleCateMask(1)" :class="{current: navIndex === '0101'}" class="item">
+                        <text>全部商品</text>
                         <text class="fyfont icon-down-hollow"></text>
                     </view>
-                    <view @click="goodsPriceSort()" :class="{current: navIndex === '0102'}" class="df df-r item">价格
-                        <view class="df df-c icon-box">
-                            <text :class="{active: goodsSort === 2}" class="fyfont icon-up"></text>
-                            <text :class="{active: goodsSort === 3}" class="fyfont icon-down"></text>
-                        </view>
+                    <view @click="goodsPriceSort()" :class="{current: navIndex === '0102'}" class="df df-r item">
+                        <text>销量</text>
                     </view>
-                    <view @click="goodsIncomeSort()" :class="{current: navIndex === '0103'}" class="df df-r item">奖励
+                    <view @click="goodsIncomeSort()" :class="{current: navIndex === '0103'}" class="df df-r item">
+                        <text>价格</text>
                         <view class="df df-c icon-box">
                             <text :class="{active: goodsSort === 5}" class="fyfont icon-up"></text>
                             <text :class="{active: goodsSort === 6}" class="fyfont icon-down"></text>
                         </view>
                     </view>
-                </template>
-                <!-- 未关注 end -->
-
-                <!-- 已关注 begin -->
-                <template v-else>
-                    <view @click.stop="selectAllGoods()" :class="{current: navIndex === '0104'}" class="item">{{goodsSortName}}
-                        <text class="fyfont icon-down-hollow"></text>
-                    </view>
-                    <view @click.stop="onGetCouponList()" :class="{current: navIndex === '0201'}" class="item">优惠券</view>
-                    <view @click.stop="getShopQr()" :class="{current: navIndex === '0301'}" class="item">店铺</view>
-                    <view v-if="goodsSortMask" @click.stop="goodsSortMask = false" class="poa type-mask">
-                        <view class="type-list">
-                            <view @click.stop="selectedGoodsSort(item)" v-for="(item, index) in goodsSortList" :key="index" class="bd-b item">{{item.name}}</view>
-                        </view>
-                    </view>
-                </template>
-                <!-- 已关注 end -->
-            </view>
+                </view>
             <!-- 商品筛选 end -->
 
             <!-- 商品列表 begin -->
@@ -91,7 +49,7 @@
                                 </template>
                                 <template v-else>￥{{item.proportionPriceMin}}</template>
                             </view>
-                            <button @click="shareGoods(item.goodsId)" v-if="shopDetail.attention === 1" class="poa btn">分享</button>
+                            <button @click="shareGoods(item.goodsId)" class="poa btn">分享</button>
                         </view>
                     </view>
                 </view>

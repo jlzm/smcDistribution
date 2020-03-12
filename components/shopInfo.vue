@@ -1,33 +1,11 @@
 <template>
     <view class="por card">
-        <template v-if="!hasLogin">
-            <view class="df df-c shop">
-                <image :src="shopDetail.image" class="logo"></image>
-                <view class="clamp tac name">{{shopDetail.shopName}}</view>
-                <view class="clamp tac desc">{{shopDetail.content}}</view>
-            </view>
-            <view class="poa tac follow">{{shopDetail.attentionNumber || 0}}人关注</view>
-        </template>
-        <template v-else>
+        <template>
             <view class="df shop-login">
                 <image :src="shopDetail.image" class="logo"></image>
                 <view class="df1">
                     <view class="clamp name">{{shopDetail.shopName}}</view>
                     <view class="clamp desc">{{shopDetail.content}}</view>
-                </view>
-            </view>
-            <view class="df jc-sb income">
-                <view class="tac item">
-                    <view class="num">{{shopDetail.shopOrder || 0}}</view>
-                    <view class="name">今日订单</view>
-                </view>
-                <view class="tac item">
-                    <view class="num">{{shopDetail.shopSale || 0}}</view>
-                    <view class="name">今天销量</view>
-                </view>
-                <view class="tac item">
-                    <view class="num">{{shopDetail.shopAward || 0}}</view>
-                    <view class="name">今日奖励</view>
                 </view>
             </view>
             <view class="poa tac follow follow-login">{{shopDetail.attention === 1 ? '已关注' : '未关注'}}</view>

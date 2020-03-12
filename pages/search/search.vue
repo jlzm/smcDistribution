@@ -1,12 +1,9 @@
 <template>
     <view class="container">
         <view class="header">
-            <view class="df df-r ai-c search-box">
-                <fyIcon icon="icon-search" size="34rpx" color="#6e6e6e"></fyIcon>
-                <text class="placeholder">搜索店铺/商品</text>    
-            </view>
-            <view class="notice-box">
-                <fyNotice></fyNotice>
+            <view class="search-box">
+                <i class="fyfont icon-search"></i>
+                <input type="text" focus>
             </view>
         </view>
         <view class="content">
@@ -99,24 +96,15 @@
 <script>
 import { getShopList, attentionShop, getMyAttentionList, getShop } from '@/hub/api/shop';
 import { getDistributor } from '@/hub/api/user';
-
-/** components begin */
 import fyUserInfo from '@/components/userInfo';
 import fyLoadMore from '@/components/loadMore';
-import fyNotice from "@/components/notice";
-import fyIcon from "@/components/icon";
-/** components end */
-
 import { mapMutations } from "vuex";
-
 let shopCurrentPage = 1, 
         followCurrentPage = 1;
     export default {
         components: {
             fyUserInfo,
-            fyLoadMore,
-            fyNotice,
-            fyIcon
+            fyLoadMore
         },
         data() {
             return {
@@ -296,24 +284,7 @@ let shopCurrentPage = 1,
 }
 
 .header {
-    background-color: #E9D5CC;
     margin-bottom: 48rpx;
-    padding-bottom: 7rpx;
-    .search-box {
-        height: 64rpx;
-        margin: 0 26rpx;
-        border-radius: 32rpx;
-        background-color: #ffffff;
-        overflow: hidden;
-        .placeholder {
-            margin-left: 10rpx;
-            font-size: 32rpx;
-            color: #6e6e6e;
-        }
-    }
-    .notice-box {
-        margin-top: 10rpx;
-    }
 }
 
 .content {
