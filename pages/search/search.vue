@@ -2,7 +2,7 @@
     <view class="container">
         <view class="header">
             <view class="df jc-sb search-wrap">
-                <view class="search-box">
+                <view class="por search-box">
                     <input class="search" type="text" focus>
                 </view>
                 <view class="search-btn">搜索</view>
@@ -293,24 +293,23 @@ let shopCurrentPage = 1,
         padding: 0 43rpx;
         .search-box {
             height: 64rpx;
-            // border-radius: 32rpx;
+            border-radius: 32rpx;
             // overflow: hidden;
+            background-color: #ffffff;
+            padding: 0 20rpx;
+            width: 562rpx;
             .placeholder {
                 margin-left: 10rpx;
                 font-size: 30rpx;
                 color: #6e6e6e;
             }
             .search {
-                padding: 0 20rpx;
                 font-size: 28rpx;;
-                background-color: #ffffff;
-                height: 64rpx;
-                width: 562rpx;
-                border-radius: 32rpx;
             }
         }
         .search-btn {
-            color: #E5AB90;
+            color: #666666;
+            font-weight: 500;
             font-size: 32rpx;
         }
     }
