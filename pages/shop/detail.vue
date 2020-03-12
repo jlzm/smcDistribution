@@ -27,7 +27,7 @@
                 </view>
             </view>
             <!-- 商品筛选 begin -->
-            <view id="filter-wrap" :class="{'filter-wrap-fixed': filterWrap.fixed}" class="df jc-sb por bd-b filter-wrap">
+            <view id="filter-wrap" :class="{'filter-wrap-fixed': filterWrap.fixed}" class="df jc-sa por bd-b filter-wrap">
                 <!-- 未关注 begin -->
                 <template v-if="shopDetail.attention === 0">
                     <view @click="toggleCateMask(1)" :class="{current: navIndex === '0101'}" class="item">{{goodsTypeItem.name}}
@@ -668,7 +668,8 @@
 
 <style lang="scss" scoped>
 @import '@/static/styles/promptMask.scss';
-
+@import '@/static/styles/filterTab.scss';
+@import '@/static/styles/cateMast.scss';
 .container {
     background-color: #F7F8FA;
 }
@@ -710,65 +711,6 @@
             color: #333;
         }
     }
-}
-
-.filter-wrap-fixed {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    right: 0;
-    left: 0;
-}
-
-.filter-wrap {
-    background: #fff;
-    padding: 0 94rpx;
-    height: 96rpx;
-    color: #666;
-    font-size: 32rpx;
-    .item {
-        padding: 2rpx 1rpx;
-    }
-    .current {
-        color: #210900;
-        font-weight: 600;
-        box-sizing: border-box;
-        background: linear-gradient(180deg, #fff 50%, #E9D5CC 0%);
-    }
-    .type-mask {
-        z-index: 998;
-        left: 0;
-        right: 0;
-        background-color: rgba(0, 0, 0, .5);
-        top: 96rpx;
-        height: 100vh;
-        .type-list {
-            width: 100%;
-            height: 328rpx;
-            padding: 0 40rpx;
-            font-weight: 400;
-            background-color: #fff;
-            font-size: 26rpx;
-            color: #333;
-            .item {
-                padding: 22rpx 0;
-            }
-        }
-    }
-    .icon-box {
-        margin-left: 4rpx;
-        color: #bfbfbf;
-        .fyfont {
-            font-size: 18rpx;
-        }
-    }
-    .active {
-        color: #B56845;
-    }
-    .down{
-        transform: scaleY(-1);
-    }
-
 }
 
 
@@ -940,63 +882,6 @@
         color: #fff;
         font-weight: 500;
         border-radius: 0;
-    }
-}
-
-/* 分类 */
-.cate-mask{
-    position: fixed;
-    right: 0;
-    top: var(--window-top);
-    bottom: 0;
-    width: 100%;
-    background: rgba(0,0,0,0);
-    z-index: 95;
-    transition: .3s;
-    
-    .cate-content{
-        width: 330rpx;
-        height: 100%;
-        background: #fff;
-        float: left;
-        transform: translateX(-100%);
-        transition: .3s;
-    }
-    &.none{
-        display: none;
-    }
-    &.show{
-        background: rgba(0,0,0,.4);
-        
-        .cate-content{
-            transform: translateX(0);
-        }
-    }
-}
-
-.cate-list{
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    .cate-item{
-        display: flex;
-        align-items: center;
-        margin: 28rpx 0;
-        padding-left: 32rpx;
-        font-size: 36rpx;
-        color: #555;
-        font-weight: 600;
-        position: relative;
-    }
-    .two{
-        height: 64rpx;
-        color: #303133;
-        font-size: 30rpx;
-        background: #f8f8f8;
-    }
-    .active{
-        border-left: 6rpx solid #CB8768;
-        color: #B56845;
     }
 }
 

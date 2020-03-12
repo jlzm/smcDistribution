@@ -16,7 +16,24 @@
                 </scroll-view>
             </view>
             <view v-if="!!shopList.length" class="shop-wrap">
-                <view class="wrap-title">所有商家</view>
+            <!-- 商店筛选 begin -->
+                <view id="filter-wrap" :class="{'filter-wrap-fixed': filterWrap.fixed}" class="df jc-sa por bd-b filter-wrap">
+                    <view @click="toggleCateMask(1)" :class="{current: navIndex === '0101'}" class="item">
+                        <text>全部商店</text>
+                        <text class="fyfont icon-down-hollow"></text>
+                    </view>
+                    <view @click="goodsPriceSort()" :class="{current: navIndex === '0102'}" class="df df-r item">
+                        <text>配送范围内</text>
+                    </view>
+                    <view @click="goodsIncomeSort()" :class="{current: navIndex === '0103'}" class="df df-r item">
+                        <text>配送距离</text>
+                        <view class="df df-c icon-box">
+                            <text :class="{active: goodsSort === 5}" class="fyfont icon-up"></text>
+                            <text :class="{active: goodsSort === 6}" class="fyfont icon-down"></text>
+                        </view>
+                    </view>
+                </view>
+            <!-- 商店筛选 end -->
                 <view class="shop-list">
                     <view @click="navTo(`/pages/shop/detail?shopId=${item.shopId}`)" v-for="(item, index) in shopList" :key="index" class="df por item">
                         <view class="por img-box">
@@ -55,6 +72,21 @@
             <text @click="showMask = false" class="fyfont icon-close"></text>
         </view>
         <!-- 弹出层 end -->
+        <!-- 分类弹出层列表 begin -->
+		<view class="cate-mask" :class="cateTypeMask || ''" @click="toggleCateMask()">
+			<view class="cate-content" @click.stop.prevent="stopPrevent" @touchmove.stop.prevent="stopPrevent">
+				<view scroll-y class="cate-list">
+						<view 
+							@click.stop="selectedGoodsType(item)"
+							v-for="(item, index) in shopTypeList" :key="index" 
+							class="cate-item b-b" 
+							:class="{active: item.typeId === goodsTypeItem.id}">
+							{{item.typeName}}
+						</view>
+				</view>
+			</view>
+		</view>
+        <!-- 分类弹出层列表 end -->
     </view>
 </template>
 
@@ -73,6 +105,30 @@ let shopCurrentPage = 1,
         },
         data() {
             return {
+                shopTypeList: [
+                    {
+                        typeName: '家用电器',
+                        typeId: 1
+                    },
+                    {
+                        typeName: '化妆品',
+                        typeId: 2
+                    },
+                    {
+                        typeName: '便利店',
+                        typeId: 3
+                    },
+                    {
+                        typeName: '化肥种子',
+                        typeId: 4
+                    },
+                    {
+                        typeName: '农具机械',
+                        typeId: 5
+                    },
+                ], // 商品类别列表
+                cateTypeMask: 'none',
+                navIndex: '0101',   // '0101': 全部; '0102': 价格 '0103': 奖励; '0104': '全部'; '0201': '优惠券'; '0301': 店铺
                 loadingType: 'more',
                 shopId: '',
                 showMask: false,
@@ -111,6 +167,18 @@ let shopCurrentPage = 1,
         
         methods: {
             ...mapMutations(['saveIncomeData']),
+            /**
+             * 店铺类别 mask 开关
+             * @param { Number } type // null:隐藏; 1:显示;
+             */
+            toggleCateMask(type = null) {
+                this.cateTypeMask = '';
+                const timer = type === 1 ? 10 : 300;
+				const state = type === 1 ? 'show' : 'none';
+				setTimeout(()=>{
+					this.cateTypeMask = state;
+				}, timer)
+            },
 
             toShare() {
                 this.navTo(`/pages/shop/detail?shopId=${shopId}`);
@@ -203,12 +271,14 @@ let shopCurrentPage = 1,
 <style lang="scss" scoped>
 @import '@/static/styles/goodsList.scss';
 @import '@/static/styles/promptMask.scss';
+@import '@/static/styles/filterTab.scss';
+@import '@/static/styles/cateMast.scss';
+
+
 
 .container {
     background-color: #fff;
 }
-
-
 
 .header {
     margin-bottom: 48rpx;

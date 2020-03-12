@@ -1,0 +1,56 @@
+/* 分类弹出层 */
+.cate-mask{
+    position: fixed;
+    right: 0;
+    top: var(--window-top);
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0);
+    z-index: 95;
+    transition: .3s;
+    
+    .cate-content{
+        width: 330rpx;
+        height: 100%;
+        background: #fff;
+        float: left;
+        transform: translateX(-100%);
+        transition: .3s;
+    }
+    &.none{
+        display: none;
+    }
+    &.show{
+        background: rgba(0,0,0,.4);
+        
+        .cate-content{
+            transform: translateX(0);
+        }
+    }
+}
+
+.cate-list{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .cate-item{
+        display: flex;
+        align-items: center;
+        margin: 28rpx 0;
+        padding-left: 32rpx;
+        font-size: 36rpx;
+        color: #555;
+        font-weight: 600;
+        position: relative;
+    }
+    .two{
+        height: 64rpx;
+        color: #303133;
+        font-size: 30rpx;
+        background: #f8f8f8;
+    }
+    .active{
+        border-left: 6rpx solid #CB8768;
+        color: #B56845;
+    }
+}
