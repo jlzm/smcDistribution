@@ -4,7 +4,7 @@
 			"path": "pages/tabbar/index/index",
 			"style": {
 				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "微米享"
+				"navigationBarTitleText": "供销小店"
 			}
 		},
         {
@@ -13,15 +13,6 @@
 				"navigationBarTitleText": "登录"
 			}
 		},
-        {
-			"path": "pages/application/application",
-			"style": {
-				"navigationBarTitleText": "申请"
-			}
-		},
-        
-        
-        
         {
 			"path": "pages/qr/qr",
 			"style": {
@@ -32,12 +23,6 @@
 			"path": "pages/pact/pact",
 			"style": {
 				"navigationBarTitleText": "用户协议"
-			}
-		},
-		{
-			"path": "pages/application/step",
-			"style": {
-				"navigationBarTitleText": "申请步骤"
 			}
 		},
 		{
