@@ -52,32 +52,13 @@
                             <view class="clamp bonus">奖励：{{item.proportionMin}}% ~ {{item.proportionMax}}%</view>
                         </view>
                         <template>
-                            <button @click.stop="onFollowShop(item.shopId)" v-if="item.attention === 0" class="poa df df-r btn btn-full">收藏</button>
+                            <button @click.stop="onCollectShop(item.shopId)" v-if="item.attention === 0" class="poa df df-r btn btn-full">收藏</button>
                             <button v-else class="poa df df-r btn">已收藏</button>
                         </template>
                     </view>
                 </view>
             </view>
         </view>
-        <!-- 弹出层 begin -->
-        <view v-if="showMask" class="df df-c pop prompt-mask">
-            <template v-if="!hasLogin || incomeData.status !== 0">
-                <view class="df df-c prompt">
-                    <text class="name">提示</text>
-                    <text class="desc">你还不是会员，申请成为会员，关注商家分享推广拿奖励</text>
-                    <button @click.stop="navTo('/pages/application/step')" class="btn">立即申请</button>
-                </view>
-            </template>
-            <template v-else>
-                <view class="df df-c prompt">
-                    <text class="name">关注成功</text>
-                    <text class="desc">马上去分享推广吧</text>
-                    <button @click.stop="toShare()" class="btn">分享推广</button>
-                </view>
-            </template>
-            <text @click="showMask = false" class="fyfont icon-close"></text>
-        </view>
-        <!-- 弹出层 end -->
         <!-- 分类弹出层列表 begin -->
 		<view class="cate-mask" :class="cateTypeMask || ''" @click="toggleCateMask()">
 			<view class="cate-content" @click.stop.prevent="stopPrevent" @touchmove.stop.prevent="stopPrevent">
@@ -241,12 +222,13 @@ let shopCurrentPage = 1,
             },
 
             // 获取关注列表
-            getFollowList() {
+            async getFollowList() {
                 this.loadingType = 'loading';
                 const propsData = {
                     currentPage: followCurrentPage
                 };
-                return getMyAttentionList(propsData).then(res => {
+                try {
+                    const res = await getMyAttentionList(propsData);
                     if(shopCurrentPage === 1) {
                         this.followList = res.data.list;
                     } else {
@@ -254,20 +236,34 @@ let shopCurrentPage = 1,
                     }
                     const noMore = this.shopList.length >= res.data.total;
                     this.loadingType = noMore ? 'noMore' : 'more';
-                }).catch(error => {
+                } catch (error) {
                     console.log('error', error);
-                })
+                }
+                // return getMyAttentionList(propsData).then(res => {
+                //     if(shopCurrentPage === 1) {
+                //         this.followList = res.data.list;
+                //     } else {
+                //         this.followList = this.followList.concat(res.data.list);
+                //     }
+                //     const noMore = this.shopList.length >= res.data.total;
+                //     this.loadingType = noMore ? 'noMore' : 'more';
+                // }).catch(error => {
+                //     console.log('error', error);
+                // })
             },
 
-            async onFollowShop(shopId) {
+            // 收藏商品
+            async onCollectShop(shopId) {
                 if(!this.hasLogin) {
                     this.navTo('/pages/login/login');
                     return;
                 }
+
                 if(this.incomeData.status !== 0) {
                     this.showMask = true;
                     return;
                 }
+
                 try {
                     this.shopId = shopId;
                     await attentionShop({shopId});
