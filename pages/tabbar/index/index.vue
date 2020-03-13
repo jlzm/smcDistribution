@@ -239,17 +239,6 @@ let shopCurrentPage = 1,
                 } catch (error) {
                     console.log('error', error);
                 }
-                // return getMyAttentionList(propsData).then(res => {
-                //     if(shopCurrentPage === 1) {
-                //         this.followList = res.data.list;
-                //     } else {
-                //         this.followList = this.followList.concat(res.data.list);
-                //     }
-                //     const noMore = this.shopList.length >= res.data.total;
-                //     this.loadingType = noMore ? 'noMore' : 'more';
-                // }).catch(error => {
-                //     console.log('error', error);
-                // })
             },
 
             // 收藏商品
