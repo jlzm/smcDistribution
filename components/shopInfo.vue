@@ -8,7 +8,7 @@
                     <view class="clamp desc">分类：{{shopDetail.content}}</view>
                 </view>
             </view>
-            <view class="poa tac follow follow-login">{{shopDetail.attention === 1 ? '已' : '未'}}收藏</view>
+            <view class="poa tac follow follow-login">{{shopDetail.attention === 1 ? '已' : ''}}收藏</view>
             <view class="df jc-sb address-wrap">
                 <view class="df df-r ai-c address">
                     <fyIcon icon="icon-address" size="34rpx"></fyIcon>
@@ -106,7 +106,7 @@ import fyIcon from "@/components/icon";
         top: 108rpx;
         font-size: 20rpx;
         border-radius: 40rpx 0 0 40rpx;
-        background-color: #DEBAAB;
+        background-color: #CB8768;
         color: #fff;
     }
     .follow-login {

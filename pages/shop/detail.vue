@@ -42,14 +42,11 @@
                                     <text class="type price-sm">{{item.priceMin}}</text>
                                 </template>
                             </view>
-                            <view class="clamp bonus">奖励：
-                                <!-- {{item.proportion}}% -->
-                                <template v-if="item.priceMax && item.priceMax > 0">
-                                    ￥{{item.proportionPriceMin}}~￥{{item.proportionPriceMax}}
-                                </template>
-                                <template v-else>￥{{item.proportionPriceMin}}</template>
+                            <view class="clamp bonus">
+                                <text class="type price-sm">{{item.priceMin}}~</text>
+                                <text class="type price-sm">{{item.priceMax}}</text>
                             </view>
-                            <button @click="shareGoods(item.goodsId)" class="poa btn">分享</button>
+                            <button @click="shareGoods(item.goodsId)" class="poa btn">购买</button>
                         </view>
                     </view>
                 </view>
@@ -57,55 +54,10 @@
             </view>
             <!-- 商品列表 end -->
 
-            <!-- 优惠券列表 begin -->
-            <view v-if="navIndex.substr(0, 2) === '02'" @scrolltolower="loadingCouponMore()" scroll-y class="product-wrap">
-                <view class="coupon-list">
-                    <view v-for="(item, index) in couponList" :key="index" class="df item">
-                        <view class="df df-c price-box">
-                            <template>
-                                <text v-if="item.type === 3" class="discount">{{item.money}}</text>
-                                <text v-else class="price">{{item.money}}</text>
-                            </template>
-                            <template>
-                                <text v-if="item.type === 1" class="condition">满{{item.upMoney}}元可用</text>
-                                <text v-else-if="item.type === 2" class="condition">无门槛券</text>
-                                <text v-else class="condition">折扣券</text>
-                            </template>
-                        </view>
-                        <view class="df1 df df-r info">
-                            <view class="df1 content">
-                                <view class="name">{{item.name}}</view>
-                                <view class="date">{{item.usrTime}}</view>
-                            </view>
-                            <view @click.stop="shareCoupon(item.couponId)"  class="df df-c share-btn">
-                                <text>立即</text>
-                                <text>分享</text>
-                            </view>
-                        </view>
-                    </view>
-                </view>
-                <fy-loadMore :status="loadingCouponType"></fy-loadMore>
-            </view>
-            <!-- 优惠券列表 end -->
-            
-            <!-- 店铺二维码 begin -->
-            <view v-if="navIndex.substr(0, 2) === '03'" class="share-wrap">
-                <template v-if="qrShow">
-                    <view class="df df-c qr-box">
-                        <image :src="poster.finalPath" mode="widthFix" class="img" show-menu-by-longpress></image>
-                    </view>
-                    <view class="tac desc">长按图片选择发送好友进行分享</view>
-                </template>
-                <view class="hideCanvasView">
-                    <canvas class="hideCanvas" canvas-id="default_PosterCanvasId" :style="{width: (poster.width||0) + 'px', height: (poster.height||0) + 'px'}"></canvas>
-                </view>
-            </view>
-            <!-- 店铺二维码 end -->
-
-        <!-- 底部关注店铺按钮 begin -->
-        <view v-if="shopDetail.attention === 0" class="pof footer">
+        <!-- 底部收藏店铺按钮 begin -->
+        <!-- <view v-if="shopDetail.attention === 0" class="pof footer">
             <button @click="onFollowShop()" class="btn">收藏店铺</button>
-        </view>
+        </view> -->
         <!-- 底部关注店铺按钮 end -->
 
         <!-- 分类列表 begin -->

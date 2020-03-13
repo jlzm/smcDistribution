@@ -37,7 +37,7 @@
             setPageTitle() {
                 let title = '';
                 if(this.shareData.type === 1) {
-                    title = '推广商品';
+                    title = '购买商品';
                 } else {
                     title = '推广优惠券';
                 }

@@ -4,7 +4,7 @@
             <view class="df jc-sb search-wrap">
                 <view class="por df ai-c search-box">
                     <input v-model="searchValue" class="search" type="text" focus>
-                    <view class="df ai-c icon-box">
+                    <view v-if="searchValue" @click.stop="clearSearchValues()" class="df ai-c icon-box">
                         <fyIcon icon="icon-cancel" size="36rpx" color="#B7B7B7"></fyIcon>
                     </view>
                 </view>
@@ -179,6 +179,11 @@ let shopCurrentPage = 1,
         
         methods: {
             ...mapMutations(['saveIncomeData']),
+
+            // 清除搜索框
+            clearSearchValues() {
+                this.searchValue = '';
+            },
 
             clearHistory() {
                 
