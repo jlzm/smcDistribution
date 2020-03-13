@@ -1,0 +1,15 @@
+{
+    "extEnable": true,
+    "extAppid": "wxe944415a53615c4f",
+    "directCommit": false,
+    "ext": {
+      "name": "test",
+      "attr": {
+        "host": "open.weixin.qq.com",
+        "users": [
+          "user_1",
+          "user_2"
+        ]
+      }
+    }
+  }

@@ -52,7 +52,7 @@
 </script>
 
 <style lang="scss" scoped>
-@import '@/static/styles/income.scss';
+@import '@/common/styles/income.scss';
 
 .card {
     padding: 48rpx 40rpx;

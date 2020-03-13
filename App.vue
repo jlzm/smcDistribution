@@ -30,7 +30,7 @@
 
 <style lang="scss">
 // 字体图标
-@import '@/static/styles/fyfont.scss';
+@import '@/common/styles/fyfont.scss';
 
 
 	view,

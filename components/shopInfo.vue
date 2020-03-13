@@ -46,7 +46,7 @@ import fyIcon from "@/components/icon";
 </script>
 
 <style lang="scss" scoped>
-@import '@/static/styles/income.scss';
+@import '@/common/styles/income.scss';
 
 .card {
     padding: 40rpx;

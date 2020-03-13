@@ -11,7 +11,10 @@
         </view>
         <view class="content">
             <view v-if="!!followList.length" class="follow-wrap">
-                <view class="wrap-title">我的收藏（{{followList.length}}）</view>
+                <view class="df jc-sb wrap-title">
+                    <view>我的收藏（{{followList.length}}）</view>
+                    <fyIcon icon="icon-right" size="32rpx" color="#6e6e6e"></fyIcon>
+                </view>
                 <scroll-view @scrolltolower="loadingFollowMore()" scroll-x>
                     <view class="df df-r jc-fs follow-list">
                         <view @click="navTo(`/pages/shop/detail?shopId=${item.shopId}`)" v-for="(item, index) in followList" :key="index" class="item">
@@ -227,6 +230,7 @@ let shopCurrentPage = 1,
                 const propsData = {
                     currentPage: followCurrentPage
                 };
+
                 try {
                     const res = await getMyAttentionList(propsData);
                     if(shopCurrentPage === 1) {
@@ -269,10 +273,10 @@ let shopCurrentPage = 1,
 </script>
 
 <style lang="scss" scoped>
-@import '@/static/styles/goodsList.scss';
-@import '@/static/styles/promptMask.scss';
-@import '@/static/styles/filterTab.scss';
-@import '@/static/styles/cateMast.scss';
+@import '@/common/styles/goodsList.scss';
+@import '@/common/styles/promptMask.scss';
+@import '@/common/styles/filterTab.scss';
+@import '@/common/styles/cateMast.scss';
 
 
 

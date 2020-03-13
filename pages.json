@@ -1,18 +1,18 @@
 {
     "pages": [
         {
+            "path": "pages/tabbar/index/index",
+            "style": {
+                "enablePullDownRefresh": true,
+                "navigationBarTitleText": "供销小店"
+            }
+        },
+        {
             "path": "pages/shop/detail",
             "style": {
                 "navigationBarTitleText": "店铺详情"
             }
         },
-        {
-			"path": "pages/tabbar/index/index",
-			"style": {
-				"enablePullDownRefresh": true,
-				"navigationBarTitleText": "供销小店"
-			}
-		},
         {
 			"path": "pages/search/search",
 			"style": {

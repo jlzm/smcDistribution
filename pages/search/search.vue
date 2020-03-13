@@ -291,10 +291,10 @@ let shopCurrentPage = 1,
 </script>
 
 <style lang="scss" scoped>
-@import '@/static/styles/goodsList.scss';
-@import '@/static/styles/promptMask.scss';
-@import '@/static/styles/filterTab.scss';
-@import '@/static/styles/cateMast.scss';
+@import '@/common/styles/goodsList.scss';
+@import '@/common/styles/promptMask.scss';
+@import '@/common/styles/filterTab.scss';
+@import '@/common/styles/cateMast.scss';
 
 
 
